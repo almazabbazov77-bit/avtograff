@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Автограф — детейлинг в Воркуте: полировка, керамика, химчистка, шумоизоляция</title>
 <meta name="description" content="Детейлинг-центр «Автограф» в Воркуте. Полировка кузова от 1 000 ₽, химчистка салона от 3 000 ₽, керамика и жидкое стекло, шумоизоляция Comfortmat. Запись: +7 (912) 509-81-13.">
-<meta name="theme-color" content="#141311">
+<meta name="theme-color" content="#0a0a0c">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Автограф — искусство автомобильного ухода. Детейлинг в Воркуте">
 <meta property="og:description" content="Полировка, керамика, химчистка и шумоизоляция. Цены от 700 ₽.">
@@ -61,20 +61,19 @@
 </script>
 <style>
 :root{
-  --bg:#141311;
-  --bg-2:#1a1916;
-  --card:#1e1c19;
-  --card-2:#24221e;
-  --line:rgba(236,228,214,.09);
-  --line-2:rgba(236,228,214,.16);
-  --text:#efeae2;
-  --muted:#a9a297;
-  --dim:#776f65;
-  --gold:#cdb68c;
-  --gold-2:#ddc8a1;
-  --gold-ink:#1b1712;
-  --red:#c42a22;
-  --stone:#e6e1d8;
+  --bg:#0a0a0c;
+  --bg-2:#111115;
+  --card:#15151a;
+  --card-2:#1b1b22;
+  --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.14);
+  --text:#f4f4f6;
+  --muted:#9a9aa6;
+  --dim:#6b6b76;
+  --gold:#f2b632;
+  --gold-2:#ffd36b;
+  --gold-ink:#1a1405;
+  --red:#ff3b30;
   --radius:22px;
   --wrap:1240px;
   --display:"Unbounded", system-ui, sans-serif;
@@ -425,113 +424,91 @@ footer{border-top:1px solid var(--line);padding:56px 0 40px;margin-top:40px}
   .ticker{margin:6px -20px 0}
 }
 
-/* ================= v4: киношная гамма ================= */
-/* плёночное зерно поверх всей страницы */
-body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opacity:.08;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-/* все фото — в одной приглушённой тёплой обработке */
-.hero__photo img,.tile img,.ba img,.steps3 img{filter:grayscale(.22) sepia(.16) saturate(.8) contrast(1.06) brightness(.95)}
-
-/* красная плашка с белым текстом — главный приём референсов */
-.eyebrow{background:var(--red);color:#fff;padding:7px 11px 6px;letter-spacing:.14em;font-size:11px}
-.eyebrow::before{display:none}
-.h2{font-weight:700;letter-spacing:-.01em}
-.lead{color:var(--muted)}
-.meta{font-size:11px;letter-spacing:.22em;text-transform:lowercase;color:rgba(239,234,226,.55)}
-
-/* первый экран */
-.hero{background:radial-gradient(60% 70% at 78% 45%,rgba(205,182,140,.10),transparent 65%),radial-gradient(45% 55% at 0% 100%,rgba(196,42,34,.07),transparent 70%),var(--bg)}
-.hero::before{display:none}
-.hero__stripes{opacity:.35}
-.hero h1 em{color:var(--red)}
-.hero__sub{color:#cfc8bd}
-.hero__meta{display:flex;justify-content:space-between;gap:16px;margin-bottom:30px;padding-bottom:16px;border-bottom:1px solid var(--line)}
-.chip{background:rgba(20,19,17,.6)}
-.hero__photo{box-shadow:0 40px 90px rgba(0,0,0,.6);border-color:rgba(236,228,214,.18)}
-.hero__photo::before{display:none}
-.hero__photo::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(0,0,0,.45))}
-.hero__photo .ph-meta{position:absolute;top:14px;left:16px;z-index:2}
-.hero__photo figcaption{z-index:2;flex-direction:column;align-items:flex-start;gap:6px;padding:0;background:none;backdrop-filter:none;left:16px;bottom:16px}
-.hero__photo figcaption span{background:var(--red);color:#fff;font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:6px 10px 5px}
-.hero__photo figcaption b{font-family:var(--body);font-weight:500;font-size:13px;color:#f3eee6;letter-spacing:.04em}
-.hero__dots{z-index:2}
-
-/* бегущая строка: песочная, ровная */
-.ticker{transform:none;margin:0;box-shadow:none}
-.ticker__row span{font-size:clamp(14px,1.6vw,18px);padding:14px 0;letter-spacing:.04em}
-.ticker__row span::after{width:6px;height:6px;margin:0 24px;border-radius:50%;transform:none}
-
-/* направления */
-.tile:hover{border-color:rgba(205,182,140,.45)}
-.tile::before{background:linear-gradient(180deg,rgba(20,19,17,.15) 0%,rgba(20,19,17,.45) 45%,rgba(20,19,17,.95) 100%)}
-.tile__no{font-family:var(--body);font-weight:600;letter-spacing:.22em;font-size:11px;color:rgba(239,234,226,.7)}
-.tile:hover .tile__arrow{background:var(--red);color:#fff}
-
-/* прайс */
-.card:hover{border-color:rgba(205,182,140,.4)}
-.card::after{background:linear-gradient(90deg,var(--red),transparent 70%)}
-.card__no{-webkit-text-stroke:1px rgba(239,234,226,.1)}
-.note{background:rgba(205,182,140,.07);border-color:rgba(205,182,140,.22);color:#ddd5c8}
-
-/* светлые «пастельные» блоки */
-.sec--light{--card:#f6f3ee;--card-2:#fbf9f5;--line:rgba(40,34,26,.1);--line-2:rgba(40,34,26,.18);--text:#1d1a16;--muted:#6f685e;--dim:#958e83;background:var(--stone);color:var(--text)}
-.sec--light .works__info{border-color:var(--line)}
-.sec--light .btn--ghost{color:var(--text)}
-.sec--light .btn--ghost:hover{background:rgba(40,34,26,.06)}
-.sec--light .why__it .n{-webkit-text-stroke:1px rgba(196,42,34,.55)}
-.sec--light .proc{border-top-color:var(--line-2)}
-.sec--light .proc__s::before{background:var(--red)}
-.sec--light .proc__s small{color:var(--red)}
-.sec--light .steps3 figcaption b{color:#ff8a80}
-/* подписи поверх фото всегда белые */
-.ba__lbl,.ba__cap,.steps3 figcaption{color:#fff}
-.ba__cap p{color:#e4ded4}
+/* ================= v5: улучшения поверх первой версии ================= */
 /* фото шумоизоляции тянутся на всю высоту колонки, без пустой дыры */
 .stack{display:flex;flex-direction:column;gap:16px}
 .steps3{flex:1;min-height:260px}
 .steps3 figure{height:100%;aspect-ratio:auto}
-
-/* было / стало */
-.ba{border-color:rgba(40,34,26,.12)}
-.ba__line{background:#fff;box-shadow:0 0 14px rgba(0,0,0,.35)}
-.ba__knob{background:#fff;color:#1d1a16}
-.ba__lbl--a{background:var(--red);color:#fff}
-.ba:focus-visible{outline-color:var(--red)}
-.why__it .n{-webkit-text-stroke:1px rgba(205,182,140,.5)}
-
-/* контакты */
-.cinfo{background:var(--card)}
-.cinfo .v:hover{color:var(--gold)}
-.form::before{background:repeating-linear-gradient(-45deg,rgba(27,23,18,.07) 0 10px,transparent 10px 20px)}
-.form input,.form select,.form textarea{background:rgba(255,255,255,.5);border-color:rgba(27,23,18,.14)}
-.form .btn{--c:var(--red);color:#fff}
-.form .btn:hover{background:#a8221b}
-
+/* видимая рамка при переходе клавишей Tab */
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 /* соцсети */
 .soc-row{display:flex;align-items:center;flex-wrap:wrap;gap:12px 16px;margin-top:24px}
 .soc-row > span{font-size:13px;color:var(--muted)}
 .soc{display:flex;flex-wrap:wrap;gap:10px}
-.soc a{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(239,234,226,.05);border:1px solid var(--line-2);color:var(--text);transition:background .2s,border-color .2s}
-.soc a:hover{background:var(--c);border-color:var(--c);color:#fff}
+.soc a{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.05);border:1px solid var(--line-2);color:var(--text);transition:background .2s,border-color .2s,color .2s}
+.soc a:hover{background:var(--gold);border-color:var(--gold);color:var(--gold-ink)}
 .soc svg{width:21px;height:21px}
 .socbig-wrap{margin-top:auto}
 .socbig-wrap .k{margin-bottom:10px}
 .socbig{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.socbig a{display:flex;align-items:center;justify-content:center;gap:9px;height:52px;padding:0 10px;border-radius:12px;background:rgba(239,234,226,.04);border:1px solid var(--line-2);font-weight:600;font-size:15px;transition:border-color .2s,color .2s}
-.socbig a:hover{border-color:var(--c);color:var(--c)}
+.socbig a{display:flex;align-items:center;justify-content:center;gap:9px;height:52px;padding:0 10px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line-2);font-weight:700;font-size:14px;transition:background .2s,border-color .2s}
+.socbig a:hover{background:rgba(255,255,255,.1);border-color:var(--gold)}
 .socbig svg{width:21px;height:21px;flex:0 0 auto;color:var(--c)}
 .socnote{margin-top:10px;font-size:12px;color:var(--muted)}
-
-/* подвал и мобильная панель */
-.foot h4{color:var(--muted)}
-.mbar a:first-child{background:var(--red);color:#fff}
-
 @media (max-width:640px){
-  .hero__meta{margin-bottom:22px}
-  .hero__meta .meta:last-child{display:none}
   .steps3{flex:none;min-height:0}
   .steps3 figure{height:auto;aspect-ratio:3/4}
   .socbig{grid-template-columns:1fr 1fr}
+}
+
+/* ================= v6: шумоизоляция, стёкла, автозвук ================= */
+.ticks{list-style:none;display:grid;gap:9px;margin-top:16px}
+.ticks li{position:relative;padding-left:26px;font-size:15px;color:var(--muted)}
+.ticks li::before{content:"";position:absolute;left:2px;top:7px;width:12px;height:7px;border-left:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(-45deg)}
+.works__info--case{display:flex;flex-direction:column;justify-content:center}
+.works__info--case .row{margin-top:24px}
+
+.noise{display:grid;grid-template-columns:1.15fr 1fr;gap:16px;align-items:stretch}
+.noise__left{display:flex;flex-direction:column;gap:16px;min-width:0}
+.mats{min-width:0}
+.noise .steps3{flex:1;min-height:300px}
+.zones{display:flex;flex-wrap:wrap;gap:8px}
+.zones span{height:38px;display:inline-flex;align-items:center;padding:0 16px;border-radius:999px;border:1px solid var(--line-2);font-size:14px;font-weight:600;color:#d8d8de}
+.mats{display:flex;flex-direction:column;gap:12px;padding:28px;border-radius:var(--radius);background:var(--card);border:1px solid var(--line)}
+.mats__head b{display:block;font-family:var(--display);font-size:20px;font-weight:700;text-transform:uppercase}
+.mats__head span{display:block;margin-top:4px;font-size:13px;color:var(--dim)}
+.mat{display:flex;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.mat i{flex:0 0 36px;height:36px;border-radius:10px;display:grid;place-items:center;font-style:normal;font-family:var(--display);font-weight:800;font-size:14px;background:rgba(242,182,50,.12);color:var(--gold)}
+.mat b{display:block;font-family:var(--display);font-size:15px;font-weight:700;text-transform:uppercase}
+.mat span{display:block;margin-top:4px;font-size:14px;color:var(--muted)}
+.mat__list{margin-top:8px;font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--gold)}
+.mats .btn{margin-top:auto}
+
+.glass{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.gcard{display:flex;flex-direction:column;border-radius:var(--radius);overflow:hidden;background:var(--card);border:1px solid var(--line);transition:border-color .25s}
+.gcard:hover{border-color:rgba(242,182,50,.45)}
+.gcard__img{height:280px;overflow:hidden}
+.gcard__img img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.gcard:hover .gcard__img img{transform:scale(1.05)}
+.gcard__body{display:flex;flex-direction:column;flex:1;padding:26px}
+.gcard h3{font-family:var(--display);font-size:22px;font-weight:700;text-transform:uppercase;line-height:1.1}
+.gcard__foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto;padding-top:22px}
+.gcard__price{font-family:var(--display);font-size:14px;font-weight:700;color:var(--gold)}
+
+.audio{display:flex;align-items:center;gap:24px;margin-top:16px;padding:16px 24px 16px 16px;border-radius:var(--radius);background:var(--card);border:1px solid var(--line)}
+.audio__img{flex:0 0 150px;height:104px;border-radius:14px;overflow:hidden}
+.audio__img img{width:100%;height:100%;object-fit:cover}
+.audio__body{flex:1;min-width:0}
+.audio__body h3{margin-top:10px;font-family:var(--display);font-size:20px;font-weight:700;text-transform:uppercase}
+.audio__tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.audio__tags span{padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.06);font-size:13px;color:#d0d0d8}
+.audio .btn{flex:0 0 auto}
+
+@media (max-width:1100px){
+  .noise{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:860px){
+  .glass{grid-template-columns:1fr}
+  .gcard__img{height:240px}
+  .audio{flex-wrap:wrap;padding:16px}
+  .audio .btn{width:100%}
+}
+@media (max-width:640px){
+  .noise .steps3{flex:none;min-height:0}
+  .mats{padding:22px}
+  .audio__img{flex-basis:96px;height:80px}
+  .gcard__body{padding:22px}
+  .gcard__foot{flex-direction:column;align-items:stretch}
 }
 </style>
 </head>
@@ -557,6 +534,8 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
 <nav class="mnav" aria-label="Мобильное меню">
   <a class="l" href="#directions">Направления</a>
   <a class="l" href="#prices">Услуги и цены</a>
+  <a class="l" href="#noise">Шумоизоляция</a>
+  <a class="l" href="#glass">Стёкла и автозвук</a>
   <a class="l" href="#works">Работы</a>
   <a class="l" href="#contacts">Контакты</a>
   <a class="btn" href="tel:+79125098113">Позвонить: +7 (912) 509-81-13</a>
@@ -570,7 +549,6 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
 <section class="hero">
   <div class="hero__stripes" aria-hidden="true"><i></i><i></i><i></i></div>
   <div class="wrap">
-    <div class="hero__meta"><span class="meta">автограф · детейлинг</span><span class="meta">воркута · 67°n</span><span class="meta">2026</span></div>
     <div class="chips">
       <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-12a7 7 0 1 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Воркута, Республика Коми</span>
       <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Ежедневно 9:00–19:00</span>
@@ -590,7 +568,6 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
         <div class="soc-row"><span>Мы в соцсетях:</span><div class="soc js-soc" data-mode="icons" data-skip="phone"></div></div>
       </div>
       <figure class="hero__photo" id="show">
-        <span class="meta ph-meta">autograf.detailing</span>
         <img class="on" src="img/polish.jpg" alt="Мастер полирует капот чёрного автомобиля" width="540" height="295" fetchpriority="high" data-cap="Полировка кузова" data-price="от 1 000 ₽">
         <img src="img/protect.jpg" alt="Нанесение защитного состава на кузов" width="540" height="315" data-cap="Керамика и жидкое стекло" data-price="от 8 900 ₽">
         <img src="img/chem.jpg" alt="Химчистка сиденья паром" width="540" height="310" data-cap="Химчистка салона" data-price="от 3 000 ₽">
@@ -658,14 +635,14 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
         <p>Ручная мойка кузова, пластика, резины и моторного отсека.</p>
         <span class="from">от 700 ₽</span>
       </button>
-      <button class="tile t6 rv" data-go="extra">
+      <a href="#noise" class="tile t6 rv">
         <img src="img/noise-2.jpg" alt="" loading="lazy" style="object-position:50% 70%">
         <span class="tile__no">05</span>
         <span class="tile__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
         <h3>Шумоизоляция</h3>
         <p>Comfortmat в наличии. Подберём решение под ваш автомобиль.</p>
         <span class="from">цена после осмотра</span>
-      </button>
+      </a>
     </div>
   </div>
 </section>
@@ -700,8 +677,108 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
   </div>
 </section>
 
+<!-- ============ NOISE ============ -->
+<section class="sec" id="noise">
+  <div class="wrap">
+    <div class="sec__head rv">
+      <div>
+        <span class="eyebrow">Шумоизоляция</span>
+        <h2 class="h2">Тихий салон<br>на Comfortmat</h2>
+      </div>
+      <p class="lead">Разбираем салон, укладываем вибро- и шумоизоляцию слоями и собираем обратно без скрипов. Подбираем материалы под машину и задачу.</p>
+    </div>
+
+    <div class="noise">
+      <div class="noise__left">
+        <div class="steps3 rv">
+          <figure><img src="img/noise-1.jpg" alt="Салон разобран до металла" loading="lazy"><figcaption><b>01</b>Разбор до металла</figcaption></figure>
+          <figure><img src="img/noise-3.jpg" alt="Укладка виброизоляции Comfortmat" loading="lazy"><figcaption><b>02</b>Виброизоляция</figcaption></figure>
+          <figure><img src="img/noise-2.jpg" alt="Пол и арки покрыты шумоизоляцией Comfortmat" loading="lazy"><figcaption><b>03</b>Шумоизоляция</figcaption></figure>
+        </div>
+        <div class="zones rv">
+          <span>Двери</span><span>Пол</span><span>Колёсные арки</span><span>Багажник</span><span>Крыша</span><span>Капот</span>
+        </div>
+      </div>
+
+      <div class="mats rv">
+        <div class="mats__head">
+          <b>Материалы Comfortmat</b>
+          <span>Наличие конкретной позиции уточняйте у мастера</span>
+        </div>
+        <div class="mat">
+          <i>1</i>
+          <div><b>Виброизоляция</b><span>Гасит вибрацию металла кузова. Первый слой.</span>
+            <p class="mat__list">Bronze · Viper · Spider · Vespa · Ghost · Extreme Pro Max</p></div>
+        </div>
+        <div class="mat">
+          <i>2</i>
+          <div><b>Шумоизоляция</b><span>Многослойные материалы с акустической мембраной. Отсекают шум дороги и мотора.</span>
+            <p class="mat__list">Raptor · Integra · Skyline · Blockshot · Titan</p></div>
+        </div>
+        <div class="mat">
+          <i>3</i>
+          <div><b>Звукопоглощение</b><span>Мягкие слои против гула и эха в салоне.</span>
+            <p class="mat__list">Soft Wave · Sound Trap</p></div>
+        </div>
+        <button class="btn btn--block js-book" data-service="Шумоизоляция Comfortmat">Рассчитать шумоизоляцию</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GLASS ============ -->
+<section class="sec" id="glass" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec__head rv">
+      <div>
+        <span class="eyebrow">Стёкла</span>
+        <h2 class="h2">Тонировка и замена стёкол</h2>
+      </div>
+      <p class="lead">Стоимость зависит от модели автомобиля и выбранной плёнки или стекла. Назовём её после осмотра.</p>
+    </div>
+
+    <div class="glass">
+      <article class="gcard rv">
+        <div class="gcard__img"><img src="img/tint.jpg" alt="Тонированный автомобиль" loading="lazy"></div>
+        <div class="gcard__body">
+          <h3>Тонировка стёкол</h3>
+          <ul class="ticks">
+            <li>Задняя полусфера — любой степени затемнения</li>
+            <li>Передние стёкла — в рамках ГОСТ, без проблем на дороге</li>
+            <li>Чистая установка без пузырей и пыли под плёнкой</li>
+          </ul>
+          <div class="gcard__foot"><span class="gcard__price">цена после осмотра</span><button class="btn btn--sm js-book" data-service="Тонировка стёкол">Записаться</button></div>
+        </div>
+      </article>
+      <article class="gcard rv">
+        <div class="gcard__img"><img src="img/windshield.jpg" alt="Вклейка лобового стекла на герметик" loading="lazy"></div>
+        <div class="gcard__body">
+          <h3>Замена лобового стекла</h3>
+          <ul class="ticks">
+            <li>Подбор стекла под модель автомобиля</li>
+            <li>Аккуратный демонтаж старого стекла</li>
+            <li>Вклейка нового на профессиональный герметик</li>
+          </ul>
+          <div class="gcard__foot"><span class="gcard__price">цена после осмотра</span><button class="btn btn--sm js-book" data-service="Замена лобового стекла">Записаться</button></div>
+        </div>
+      </article>
+    </div>
+
+    <!-- автозвук: компактно -->
+    <div class="audio rv">
+      <div class="audio__img"><img src="img/audio.jpg" alt="Сабвуферы в багажнике" loading="lazy"></div>
+      <div class="audio__body">
+        <span class="eyebrow">Автозвук</span>
+        <h3>Установка музыки</h3>
+        <div class="audio__tags"><span>Магнитолы</span><span>Акустика</span><span>Сабвуферы</span><span>Усилители</span><span>Шумоизоляция дверей под звук</span></div>
+      </div>
+      <button class="btn btn--sm js-book" data-service="Установка автозвука">Подобрать комплект</button>
+    </div>
+  </div>
+</section>
+
 <!-- ============ WORKS ============ -->
-<section class="sec sec--light" id="works">
+<section class="sec" id="works">
   <div class="wrap">
     <div class="sec__head rv">
       <div>
@@ -724,20 +801,19 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
         </div>
       </div>
 
-      <div class="stack">
-        <div class="steps3 rv">
-          <figure><img src="img/noise-1.jpg" alt="Салон разобран до металла" loading="lazy"><figcaption><b>01</b>Разбор до металла</figcaption></figure>
-          <figure><img src="img/noise-3.jpg" alt="Укладка виброизоляции Comfortmat" loading="lazy"><figcaption><b>02</b>Виброизоляция</figcaption></figure>
-          <figure><img src="img/noise-2.jpg" alt="Пол и арки покрыты шумоизоляцией Comfortmat" loading="lazy"><figcaption><b>03</b>Шумоизоляция</figcaption></figure>
-        </div>
-        <div class="works__info rv">
-          <span class="eyebrow">Шумоизоляция Comfortmat</span>
-          <h3 style="margin-top:12px">Тихий салон — по слоям</h3>
-          <p>Разбираем салон, укладываем вибро- и шумоизоляцию на пол, арки и двери, собираем обратно без скрипов. Материалы Comfortmat в наличии.</p>
-          <div class="row">
-            <button class="btn btn--sm js-book" data-service="Шумоизоляция Comfortmat">Рассчитать шумоизоляцию</button>
-            <a class="btn btn--sm btn--ghost" href="https://vk.com/club235400344" target="_blank" rel="noopener">Больше работ во ВКонтакте</a>
-          </div>
+      <div class="works__info works__info--case rv">
+        <span class="eyebrow">Кейс</span>
+        <h3 style="margin-top:12px">Детейлинг моторного отсека BMW</h3>
+        <p>Моторный отсек — одна из самых недооценённых зон: здесь копятся грязь, пыль и налёт. Приводим его в порядок без риска для электроники.</p>
+        <ul class="ticks">
+          <li>Глубокая очистка сложных загрязнений</li>
+          <li>Безопасная работа с узлами и электроникой</li>
+          <li>Обработка пластика и элементов отсека</li>
+          <li>Аккуратный, ухоженный вид, как у свежей машины</li>
+        </ul>
+        <div class="row">
+          <button class="btn btn--sm js-book" data-service="Детейлинг моторного отсека">Записаться</button>
+          <a class="btn btn--sm btn--ghost" href="https://vk.com/club235400344" target="_blank" rel="noopener">Больше работ во ВКонтакте</a>
         </div>
       </div>
     </div>
@@ -745,7 +821,7 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
 </section>
 
 <!-- ============ WHY ============ -->
-<section class="sec sec--light" style="padding-top:20px">
+<section class="sec" style="padding-top:20px">
   <div class="wrap">
     <div class="sec__head rv">
       <div>
@@ -836,6 +912,8 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
         <h4>Разделы</h4>
         <a href="#directions">Направления</a>
         <a href="#prices">Услуги и цены</a>
+        <a href="#noise">Шумоизоляция</a>
+        <a href="#glass">Стёкла и автозвук</a>
         <a href="#works">Наши работы</a>
       </div>
       <div>
@@ -887,6 +965,8 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
     {id:"protect", name:"Защита",        title:"Защита кузова",      from:"от 4 500 ₽"},
     {id:"wash",    name:"Мойка",         title:"Детейлинг-мойка",    from:"от 700 ₽"},
     {id:"north",   name:"Для Воркуты",   title:"Услуги для Воркуты", from:"от 2 000 ₽"},
+    {id:"glass",   name:"Стёкла",        title:"Тонировка и стёкла", from:"по осмотру"},
+    {id:"audio",   name:"Автозвук",      title:"Установка автозвука", from:"по осмотру"},
     {id:"extra",   name:"Дополнительно", title:"Дополнительно",      from:"по осмотру"}
   ];
 
@@ -914,18 +994,18 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
     ["north","Консервация кузова на зиму",35000,"Комплексная обработка кузова перед долгим хранением или сезоном."],
     ["extra","Шумоизоляция Comfortmat",null,"Вибро- и шумоизоляция пола, арок, дверей и багажника. Материалы в наличии."],
     ["extra","Детейлинг моторного отсека",null,"Глубокая очистка, безопасная работа с электроникой, обработка пластика."],
-    ["extra","Предпродажная подготовка",null,"Кузов и салон в состоянии, за которое покупатель готов платить больше."]
+    ["extra","Предпродажная подготовка",null,"Кузов и салон в состоянии, за которое покупатель готов платить больше."],
+    ["glass","Тонировка стёкол",null,"Тонировка задней полусферы и передних стёкол в рамках ГОСТ."],
+    ["glass","Замена лобового стекла",null,"Подбор стекла под модель, демонтаж старого и вклейка нового на герметик."],
+    ["audio","Установка автозвука",null,"Магнитолы, акустика, сабвуферы и усилители с аккуратной прокладкой проводки."]
   ];
 
   // ===== СОЦСЕТИ: впишите ссылку в url — кнопка появится везде. Пустой url = кнопка скрыта =====
   var SOCIAL = [
-    {id:"whatsapp",  name:"WhatsApp",   url:"https://wa.me/79125098113",          c:"#1fae55"},
-    {id:"telegram",  name:"Telegram",   url:"",                                    c:"#229ed9"},
-    {id:"vk",        name:"ВКонтакте",  url:"https://vk.com/club235400344",        c:"#0077ff"},
-    {id:"avito",     name:"Авито",      url:"",                                    c:"#00a4f0"},
-    {id:"instagram", name:"Instagram*", url:"",                                    c:"#d6249f"},
-    {id:"viber",     name:"Viber",      url:"viber://chat?number=%2B79125098113",  c:"#7360f2"},
-    {id:"phone",     name:"Позвонить",  url:"tel:+79125098113",                    c:"#c42a22"}
+    {id:"avito",     name:"Авито",      url:"https://www.avito.ru/user/9acfdfa3f8b0d4e9997d3b473721d9b1/profile", c:"#00a4f0"},
+    {id:"vk",        name:"ВКонтакте",  url:"https://vk.com/club235400344", c:"#0077ff"},
+    {id:"instagram", name:"Instagram*", url:"https://www.instagram.com/veronika___vershinina/", c:"#d6249f"},
+    {id:"telegram",  name:"Telegram",   url:"",                             c:"#229ed9"}
   ];
   var ICONS = {
     whatsapp:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>',
@@ -933,7 +1013,6 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
     vk:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.8 17.5C6.6 17.5 3.1 13.3 3 6.5h3.1c.1 5 2.3 7.1 4 7.5V6.5h2.9v4.3c1.7-.2 3.5-2.1 4.1-4.3H20c-.5 2.6-2.4 4.5-3.8 5.3 1.4.6 3.6 2.4 4.4 5.7h-3.2c-.7-2.2-2.4-3.9-4.7-4.1v4.1z"/></svg>',
     avito:'<svg viewBox="0 0 24 24"><circle cx="16.4" cy="7.4" r="4.4" fill="#00aaff"/><circle cx="7.4" cy="16.4" r="3.6" fill="#97cf26"/><circle cx="16.6" cy="16.8" r="2.7" fill="#a169f7"/><circle cx="7" cy="7.6" r="2" fill="#ff6163"/></svg>',
     instagram:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg>',
-    viber:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2.5c5.5 0 8.5 2.3 8.5 7.8 0 5.6-3 7.8-8.5 7.8l-1.2-.1L7 21v-3.6c-2.4-1.1-3.5-3.2-3.5-7.1 0-5.5 3-7.8 8.5-7.8z"/><path d="M9.2 7.5c.4-.3 1-.2 1.2.2l.6 1.2c.2.4 0 .8-.3 1l-.3.3c.4 1 1.2 1.8 2.2 2.2l.3-.3c.3-.3.7-.4 1-.2l1.2.6c.4.2.5.8.2 1.2-.6.8-1.6 1-2.5.6a8 8 0 0 1-4.3-4.3c-.4-.9-.2-1.9.7-2.5z"/></svg>',
     phone:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>'
   };
   (function renderSocial(){
@@ -1040,7 +1119,9 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
   var modal = document.getElementById("modal");
   var mSel = modal.querySelector("select");
   var mSub = modal.querySelector(".js-m-sub");
+  var lastFocus = null;
   function openModal(service){
+    lastFocus = document.activeElement;
     mSel.value = service || "";
     if (service && mSel.value !== service) mSel.value = "";
     mSub.textContent = service ? "Услуга: " + service + ". Откроется WhatsApp с готовым сообщением." : "Оставьте данные, откроется WhatsApp с готовым сообщением.";
@@ -1048,7 +1129,11 @@ body::after{content:"";position:fixed;inset:0;z-index:90;pointer-events:none;opa
     document.body.style.overflow = "hidden";
     setTimeout(function(){ modal.querySelector("input").focus(); }, 250);
   }
-  function closeModal(){ modal.classList.remove("on"); document.body.style.overflow = ""; }
+  function closeModal(){
+    if (!modal.classList.contains("on")) return;
+    modal.classList.remove("on"); document.body.style.overflow = "";
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
   document.addEventListener("click", function(e){
     var b = e.target.closest(".js-book");
     if (b){ e.preventDefault(); closeMenu(); openModal(b.dataset.service); }
