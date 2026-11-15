@@ -473,6 +473,30 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .mat span{display:block;margin-top:4px;font-size:14px;color:var(--muted)}
 .mat__list{margin-top:8px;font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--gold)}
 .mats .btn{margin-top:auto}
+.mf{display:flex;flex-wrap:wrap;gap:6px}
+.mf button{height:34px;padding:0 14px;border-radius:999px;border:1px solid var(--line-2);font-family:var(--display);font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#d0d0d8;transition:all .2s}
+.mf button:hover{border-color:rgba(255,255,255,.35)}
+.mf button[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:var(--gold-ink);font-weight:700}
+.mf sup{font-size:8px;margin-left:3px;opacity:.7}
+.mmore{align-self:flex-start;font-size:13px;font-weight:700;color:var(--gold);border-bottom:1px dashed rgba(242,182,50,.5);padding:2px 0}
+.mmore:hover{color:#fff}
+.mats .mmore{margin-top:4px}
+.cmcat{margin-top:16px;padding:28px;border-radius:var(--radius);background:var(--card);border:1px solid var(--line)}
+.cmcat__head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.cmcat__head b{display:block;font-family:var(--display);font-size:20px;font-weight:700;text-transform:uppercase}
+.cmcat__head span{display:block;margin-top:4px;font-size:13px;color:var(--dim)}
+.cgrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+.citem{display:flex;flex-direction:column;min-width:0}
+.citem[hidden]{display:none}
+.citem__img{aspect-ratio:1;border-radius:14px;overflow:hidden;background:#fff}
+.citem__img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.citem:hover .citem__img img{transform:scale(1.06)}
+.citem__nm{margin-top:10px;font-size:14px;font-weight:600;line-height:1.25;color:#ececf0}
+.citem__nm small{display:block;font-size:11px;font-weight:500;color:var(--dim)}
+.citem__pr{margin-top:auto;padding-top:6px;font-family:var(--display);font-size:14px;font-weight:700;color:var(--gold)}
+.cmcat .more-wrap{margin-top:22px}
+@media (max-width:1100px){ .cgrid{grid-template-columns:repeat(4,minmax(0,1fr))} }
+@media (max-width:640px){ .cmcat{padding:18px} .cgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px} }
 
 .glass{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .gcard{display:flex;flex-direction:column;border-radius:var(--radius);overflow:hidden;background:var(--card);border:1px solid var(--line);transition:border-color .25s}
@@ -703,25 +727,35 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
       <div class="mats rv">
         <div class="mats__head">
           <b>Материалы Comfortmat</b>
-          <span>Наличие конкретной позиции уточняйте у мастера</span>
+          <span>Три слоя — три задачи</span>
         </div>
         <div class="mat">
           <i>1</i>
-          <div><b>Виброизоляция</b><span>Гасит вибрацию металла кузова. Первый слой.</span>
-            <p class="mat__list">Bronze · Viper · Spider · Vespa · Ghost · Extreme Pro Max</p></div>
+          <div><b>Виброизоляция</b><span>Гасит вибрацию металла кузова. Первый слой.</span></div>
         </div>
         <div class="mat">
           <i>2</i>
-          <div><b>Шумоизоляция</b><span>Многослойные материалы с акустической мембраной. Отсекают шум дороги и мотора.</span>
-            <p class="mat__list">Raptor · Integra · Skyline · Blockshot · Titan</p></div>
+          <div><b>Шумоизоляция</b><span>Отсекает шум дороги, колёс и мотора.</span></div>
         </div>
         <div class="mat">
           <i>3</i>
-          <div><b>Звукопоглощение</b><span>Мягкие слои против гула и эха в салоне.</span>
-            <p class="mat__list">Soft Wave · Sound Trap</p></div>
+          <div><b>Звукопоглощение</b><span>Мягкие слои против гула и эха в салоне.</span></div>
         </div>
+        <a href="#cmcat" class="mmore">Смотреть материалы и цены ↓</a>
         <button class="btn btn--block js-book" data-service="Шумоизоляция Comfortmat">Рассчитать шумоизоляцию</button>
       </div>
+    </div>
+
+    <div class="cmcat rv" id="cmcat">
+      <div class="cmcat__head">
+        <div>
+          <b>Каталог Comfortmat</b>
+          <span>Цены за лист материала. Наличие уточняйте у мастера</span>
+        </div>
+        <div class="mf" id="mf" role="group" aria-label="Серия материалов"></div>
+      </div>
+      <div class="cgrid" id="cgrid"></div>
+      <div class="more-wrap"><button type="button" class="btn btn--ghost" id="mmore" hidden></button></div>
     </div>
   </div>
 </section>
@@ -1028,6 +1062,60 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
     });
     var ig = active.some(function(s){ return s.id === "instagram"; });
     document.querySelectorAll(".js-socnote").forEach(function(n){ n.hidden = !ig; });
+  })();
+
+
+  // ===== COMFORTMAT: ассортимент, цены за лист, фото =====
+  var MATS = [
+    ["t","Тишина SP4",473,"","sp8"],["t","Тишина SP8",773,"","sp8"],["t","Тишина V6",661,"","v6"],["t","Тишина V10",976,"","v10"],
+    ["t","Тишина Bitoflex",488,"","bitoflex"],["t","Тишина Defender",593,"","defender"],["t","Тишина Volna",682,"","volna"],
+    ["t","Тишина Voilok",397,"760×660 мм","voilok660"],["t","Тишина Voilok",610,"760×1000 мм","voilok1000"],
+    ["c","Vision Red",1292,"","visionred"],["c","Fusion",834,"","fusion"],["c","Raptor",823,"","raptor"],["c","Grillon",570,"","grillon"],
+    ["c","BitoSoft 5",549,"","bitosoft5"],["c","BitoSoft 10",905,"","bitosoft10"],["c","Integra",823,"","integra"],["c","BlockShot",974,"","blockshot"],
+    ["c","Blockator",660,"","blockator"],["c","Titan",1139,"","titan"],["c","Locker",660,"","locker"],["c","Ranger",570,"","ranger"],
+    ["c","Ultrasoft 5",712,"","ultrasoft5"],["c","Ultrasoft 10",1129,"","ultrasoft10"],["c","UltraSoft Wave 15",1271,"","wave15"],
+    ["c","UltraSoft Expert Wave 15",1668,"","expertwave15"],["c","Tsunami",692,"","tsunami"],["c","Felton",1273,"лист 1,0×0,7 м","felton"],
+    ["c","Soundtrap",1139,"","soundtrap"],["c","Soundtrap mini",234,"","soundtrapmini"]
+  ];
+  (function(){
+    var grid = document.getElementById("cgrid"), mf = document.getElementById("mf"), more = document.getElementById("mmore");
+    if (!grid) return;
+    var M_LIMIT = window.matchMedia("(max-width:640px)").matches ? 6 : 12, mOpen = false, mCur = "all";
+    var SER = {all:"Все", t:"Серия «Тишина»", c:"Comfortmat"};
+    var cnt = {all:MATS.length, t:0, c:0};
+    MATS.forEach(function(m){ cnt[m[0]]++; });
+    mf.innerHTML = ["all","t","c"].map(function(k){
+      return '<button type="button" data-m="'+k+'" aria-pressed="'+(k==="all")+'">'+SER[k]+'<sup>'+cnt[k]+'</sup></button>';
+    }).join("");
+    grid.innerHTML = MATS.map(function(m){
+      return '<div class="citem" data-s="'+m[0]+'"><div class="citem__img"><img src="img/cm/'+m[4]+'.jpg" alt="Comfortmat '+m[1]+'" loading="lazy" width="360" height="360"></div>'+
+        '<div class="citem__nm">'+m[1]+(m[3]?'<small>'+m[3]+'</small>':'')+'</div>'+
+        '<div class="citem__pr">'+Number(m[2]).toLocaleString("ru-RU").replace(/\s/g," ")+' ₽</div></div>';
+    }).join("");
+    var items = grid.children;
+    function paint(){
+      var shown = 0, total = 0;
+      for (var i=0;i<items.length;i++){
+        var ok = mCur==="all" || items[i].dataset.s===mCur;
+        if (ok) total++;
+        var vis = ok && (mOpen || shown < M_LIMIT);
+        if (vis) shown++;
+        items[i].hidden = !vis;
+      }
+      more.hidden = total <= M_LIMIT;
+      more.textContent = mOpen ? "Свернуть" : "Показать все " + total + " позиций";
+    }
+    mf.addEventListener("click", function(e){
+      var b = e.target.closest("button"); if (!b) return;
+      mCur = b.dataset.m;
+      mf.querySelectorAll("button").forEach(function(x){ x.setAttribute("aria-pressed", x===b); });
+      paint();
+    });
+    more.addEventListener("click", function(){
+      mOpen = !mOpen; paint();
+      if (!mOpen) document.getElementById("cmcat").scrollIntoView({behavior:"smooth", block:"start"});
+    });
+    paint();
   })();
 
   var fmt = function(n){ return n==null ? null : "от " + n.toLocaleString("ru-RU").replace(/ |,/g," ") + " ₽"; };
